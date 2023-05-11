@@ -12,10 +12,12 @@
             <div class="card __card">
                 {{-- <img src="..." class="card-img-top" alt="..."> --}}
                 <div class="card-body">
-                  <h5 class="card-title">{{$train->id}}</h5>
-                  <h6>Departure station: {{$train->departure_station}}</h6>
-                  <h6>Arrival station: {{$train->arrival_station}}</h6>
-
+                  <h5 class="card-title">{{$train->train_code}}</h5>
+                  <h6>Departure station: {{ucwords($train->departure_station)}}</h6>
+                  <h6>Departure time: {{$train->departure_time}}, {{\Carbon\Carbon::parse($train->departure_day)->format('d/m/Y')}}</h6>
+                  <h6>Arrival station: {{ucwords($train->arrival_station)}}</h6>
+                  <h6>Arrival time: {{$train->arrival_time}}, {{\Carbon\Carbon::parse($train->arrival_day)->format('d/m/Y')}}</h6>
+                  <h6>Number of carriages: {{$train->number_of_carriages}}</h6>
 
                 </div>
               </div>

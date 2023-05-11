@@ -6,15 +6,15 @@ use App\Models\Train;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+// Carbon is a popular PHP library used for working with dates and times. It provides an expressive and convenient API to manipulate, format, and compare dates and times. Carbon extends the core PHP DateTime class and provides additional functionality and a more intuitive syntax.
+use Carbon\Carbon;
+
 class PageController extends Controller
 {
-    function index()
-    { // first method call
-        $trains = Train::all();
-
-        // second method call
-        // visualize all movies
-        //$movies = Movie::select('*')->get();
+    public function index()
+    {
+        $today = Carbon::today();
+        $trains = Train::where('departure_day', '>=', $today)->get();
 
         return view('index', compact('trains'));
     }
