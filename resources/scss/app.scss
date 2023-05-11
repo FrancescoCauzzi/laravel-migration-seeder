@@ -11,9 +11,28 @@
     top: 0;
     width: 100%;
     z-index: 2;
+    height: 70px;
 }
 
 .__footer {
     position: fixed;
     bottom: 0;
+    height: 60px;
+}
+
+.__main-ctn {
+    height: 100vh;
+    background-color: rgb(84, 22, 22);
+
+    .__page-title {
+        color: white;
+    }
+
+    .__trains-list {
+        gap: 15px;
+        .__card {
+            width: calc(100% / 3 * 1 - (15px / 3 * 2));
+            min-width: 230px;
+        }
+    }
 }

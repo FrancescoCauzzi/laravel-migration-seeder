@@ -19,9 +19,8 @@
 
     @include('layouts/partials/header')
 
-    <div class="py-5">
-        @yield('content')
-    </div>
+
+    @yield('content')
 
     @include('layouts/partials/footer')
 
