@@ -16,6 +16,6 @@ class PageController extends Controller
         // visualize all movies
         //$movies = Movie::select('*')->get();
 
-        return view('index', compact('movies'));
+        return view('index', compact('trains'));
     }
 }
