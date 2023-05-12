@@ -19,9 +19,7 @@ class TrainsSeeder extends Seeder
     public function run(Faker $faker)
     {
 
-
-
-
+        // Prima parte
         for ($i = 0; $i < 50; $i++) {
             $startDate = $faker->dateTime(); // Get the current date and time as a DateTime object
             $endDate = $startDate->modify('+1 day'); // Add 1 day to the start date
