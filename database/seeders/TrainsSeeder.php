@@ -46,7 +46,7 @@ class TrainsSeeder extends Seeder
             }
 
             Train::create([
-                'company' => $faker->name(),
+                'company' => $faker->company(),
 
                 'departure_station' => $faker->city(),
 
