@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Guest;
 
 use App\Models\Train;
+use App\Models\TrainBonus;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -18,5 +20,11 @@ class PageController extends Controller
         $trains = Train::all();
 
         return view('index', compact('trains'));
+    }
+
+    public function trainBonus()
+    {
+        $trains = TrainBonus::all();
+        return view('trainbonus', compact('trains'));
     }
 }
