@@ -20,7 +20,24 @@ class TrainsSeeder extends Seeder
     {
 
 
+
+
         for ($i = 0; $i < 50; $i++) {
+            $startDate = $faker->dateTime(); // Get the current date and time as a DateTime object
+            $endDate = $startDate->modify('+1 day'); // Add 1 day to the start date
+
+            $date1 = $faker->dateTimeBetween($startDate, $endDate);
+            $date2 = $faker->dateTimeBetween($date1, $endDate);
+
+
+            $time1 = $faker->time(); // Generate the first random time
+
+            $minTime2 = date('H:i:s', strtotime($time1) + (rand(2, 8) * 60 * 60)); // Add 2 hours to time1
+            $time2 = $faker->time($minTime2); // Generate the second random time after the minimum time
+
+            if ($time2 < $time1) {
+                $date2 = $date2->modify('+1 day');
+            }
 
             $code = '';
             for ($j = 0; $j < 5; $j++) {
@@ -35,21 +52,21 @@ class TrainsSeeder extends Seeder
 
                 'arrival_station' => $faker->city(),
 
-                'departure_day' => $faker->date(),
+                'departure_day' => $date1,
 
-                'departure_time' => $faker->time(),
+                'departure_time' => $time1,
 
-                'arrival_day' => $faker->date(),
+                'arrival_day' => $date2,
 
-                'arrival_time' => $faker->time(),
+                'arrival_time' => $time2,
 
                 'train_code' => strtoupper($code),
 
                 'number_of_carriages' => $faker->numberBetween(1, 10),
 
-                'on_time' => $faker->boolean(0.7),
+                'on_time' => $faker->boolean(80),
 
-                'cancelled' => $faker->boolean(0.3)
+                'cancelled' => $faker->boolean(20)
 
 
 
